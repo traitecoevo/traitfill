@@ -1,4 +1,4 @@
-##' Fill missing data values based on taxonomic structure.
+##' Fill missing binary trait data values based on taxonomic structure.
 ##'
 ##' This is a \emph{direct} port from richfitz/wood with nothing other
 ##' than stylistic changes.
@@ -14,8 +14,8 @@
 ##'   \item{order}
 ##'   \item{family}
 ##'   \item{genus}
-##'   \item{n1 (unless renamed by \code{names}}
-##'   \item{n0 (unless renamed by \code{names}}
+##'   \item{n1 (unless renamed by \code{names})}
+##'   \item{n0 (unless renamed by \code{names})}
 ##'   \item{N (must be at least n0 + n1)}
 ##' }
 ##'
@@ -153,9 +153,14 @@ rhyper2 <- function(nn, s0, s1, xn, fraction=FALSE) {
 }
 
 traitfill_prepare <- function(dat, names) {
+  taxon <- c("order", "family", "genus")
   msg_taxon <- setdiff(c("order", "family", "genus"), names(dat))
   if (length(msg_taxon) > 0L) {
     stop("Missing taxonomic columns: ", pastec(msg_taxon))
+  }
+  dat[taxon] <- lapply(dat[taxon], as.character)
+  if (any(is.na(dat[taxon])) || any(dat[taxon] == "")) {
+    stop("Detected missing taxonomic information")
   }
 
   msg_data <- setdiff(c(names, "N"), names(dat))
