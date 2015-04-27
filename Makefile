@@ -37,4 +37,7 @@ clean:
 	make -C src/rlite/src clean
 	rm -f src/*.o src/*.so
 
-.PHONY: clean all test document install
+vignettes: vignettes/traitfill.Rmd
+	Rscript -e 'library(methods); options(warnPartialMatchArgs=FALSE, warnPartialMatchDollar=FALSE); devtools::build_vignettes()'
+
+.PHONY: clean all test document install vignettes
