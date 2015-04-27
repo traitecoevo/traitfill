@@ -47,6 +47,13 @@
 ##' @param names Names for columns in \code{dat} corresponding to
 ##' state 0 and state1.
 ##' @export
+##' @examples
+##' ## Data from "How much of the world is woody?"
+##' wood <- load_wood()
+##' ## Fill in missing woodiness data; this says that the "H" column
+##' ## is state 0 and the "W" column is state 1, so that the generated
+##' ## percentages are "percentage woody" and not "percentage herbacious.
+##' res <- traitfill(wood, 50, names=c("H", "W"))
 traitfill <- function(dat, nrep, with_replacement=TRUE,
                       names=c("n0", "n1")) {
   f <- function(level) {
@@ -159,7 +166,11 @@ traitfill_prepare <- function(dat, names) {
     stop("Missing taxonomic columns: ", pastec(msg_taxon))
   }
   dat[taxon] <- lapply(dat[taxon], as.character)
-  if (any(is.na(dat[taxon])) || any(dat[taxon] == "")) {
+  # TODO: this *should* be correct but there is an issue with the
+  # woodiness data needs fixing first.
+  # msg <- any(is.na(dat[taxon])) || any(dat[taxon] == "")
+  msg <- any(dat[taxon] == "", na.rm=TRUE)
+  if (msg) {
     stop("Detected missing taxonomic information")
   }
 

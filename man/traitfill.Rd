@@ -60,4 +60,12 @@ each element is a data.frame with columns
     estimated fraction of species in state 1}
 }
 }
+\examples{
+## Data from "How much of the world is woody?"
+wood <- load_wood()
+## Fill in missing woodiness data; this says that the "H" column
+## is state 0 and the "W" column is state 1, so that the generated
+## percentages are "percentage woody" and not "percentage herbacious.
+res <- traitfill(wood, 50, names=c("H", "W"))
+}
 
