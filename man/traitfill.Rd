@@ -18,7 +18,7 @@ replacement (default is TRUE)}
 state 0 and state1.}
 }
 \description{
-Fill missing data values based on taxonomic structure.
+Fill missing binary trait data values based on taxonomic structure.
 }
 \details{
 This is a \emph{direct} port from richfitz/wood with nothing other
@@ -35,8 +35,8 @@ So \code{dat} must have columns:
   \item{order}
   \item{family}
   \item{genus}
-  \item{n1 (unless renamed by \code{names}}
-  \item{n0 (unless renamed by \code{names}}
+  \item{n1 (unless renamed by \code{names})}
+  \item{n0 (unless renamed by \code{names})}
   \item{N (must be at least n0 + n1)}
 }
 
