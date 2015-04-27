@@ -9,31 +9,21 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
-Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
+The organization of functional biological infomation is well behind that of taxonomy.  For example we have a good idea about the taxonomy of about 300,000 higher plant species, but only functional information about a much smaller number.  In the case of woody-versus-herbaceous for plants this is about 50,000 species.  Making the matter worse the information we do have is a biased sample--it's usually disproportionally about temperate, economically important, and pretty species.  Until functional information catches up with taxonomy, this is a package designed to use taxonomic information to estimate the missing binary trait values.  
 
-- Never uses retina figures
-- Has a smaller default figure size
-- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
+For example there are known species of the genus *Aa*, an orchid.  We have documentation that XX of them are herbaceous. The question is what is the probablity of the remaining, un-documented species being herbaceous.  Probably the number is close to, but not equal to, 1.  
 
-## Vignette Info
+This package takes two approaches to estimating those species (for details see FitzJohn et al. 2014), which here are accessed via the option `with_replacement`.  The strong prior option described by FitzJohn et al. (2014) corresponds to `with_replacement=TRUE`; the weak prior corresponds to `with_replacement=FALSE`.  
 
-Note the various macros within the `vignette` setion of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
+This gives us a taxonomically informed picture of this functional trait.  The estimates can be examined at the genus, family, order, or global level. In many empirical cases (including the one discussed by FitzJohn et al. 2014) in turns out that due to sampling bias, the raw estimate for a trait is very different than the taxonmically informed one.  
 
-## Styles
-
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
-
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
 
 ## Figures
 
 The figure sizes have been customised so that you can easily put two images side-by-side. 
 
 ```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
+#wood
 ```
 
 You can enable figure captions by `fig_caption: yes` in YAML:
