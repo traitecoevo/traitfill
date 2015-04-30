@@ -54,5 +54,6 @@ The output is a list of dataframes.  The first element of the list contains the 
 
 ## References
 
--FitzJohn et al.
--Zanne et al.
+FitzJohn, R. G., Pennell, M. W., Zanne, A. E., Stevens, P. F., Tank, D. C., Cornwell, W. K. (2014), How much of the world is woody?. Journal of Ecology, 102: 1266–1272. [doi: 10.1111/1365-2745.12260](http://onlinelibrary.wiley.com/doi/10.1111/1365-2745.12260/full)
+
+Zanne, Amy E., et al. (2014), Three keys to the radiation of angiosperms into freezing environments. Nature 506.7486 (2014): 89-92.
