@@ -1,7 +1,7 @@
 # traitfill
 
-[![Build Status](https://travis-ci.org/richfitz/traitfill.png?branch=master)](https://travis-ci.org/richfitz/traitfill)
-[![Coverage Status](https://coveralls.io/repos/richfitz/traitfill/badge.svg?branch=master)](https://coveralls.io/r/richfitz/traitfill?branch=master)
+[![Build Status](https://travis-ci.org/traitecoevo/traitfill.png?branch=master)](https://travis-ci.org/traitecoevo/traitfill)
+[![Coverage Status](https://coveralls.io/repos/traitecoevo/traitfill/badge.svg?branch=master)](https://coveralls.io/r/traitecoevo/traitfill?branch=master)
 
 This R package is for leveraging taxonomic information to impute the values of a binary trait for species with missing data. The approach is described in [FitzJohn et al. 2014 (Journal of Ecology)](http://onlinelibrary.wiley.com/doi/10.1111/1365-2745.12260/full) and originally implemented [here](https://github.com/richfitz/wood).
 
